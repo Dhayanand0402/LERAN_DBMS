@@ -1,0 +1,59 @@
+SQL> SET SERVEROUTPUT ON;
+SQL> 
+SQL> DECLARE
+  2    i NUMBER(4);
+  3    n NUMBER(4) := &n;
+  4    f NUMBER(10) := 1;
+  5  BEGIN
+  6    FOR i IN 1..n LOOP
+  7      f := f * i;
+  8    END LOOP;
+  9  
+ 10    DBMS_OUTPUT.PUT_LINE('The Factorial of ' || n || ' is: ' || f);
+ 11  END;
+ 12  /
+Enter value for n: 4
+old   3:   n NUMBER(4) := &n;
+new   3:   n NUMBER(4) := 4;
+The Factorial of 4 is: 24
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for n: 5
+old   3:   n NUMBER(4) := &n;
+new   3:   n NUMBER(4) := 5;
+The Factorial of 5 is: 120
+
+PL/SQL procedure successfully completed.
+
+SQL> SET SERVEROUTPUT ON;
+SQL> 
+SQL> DECLARE
+  2    n NUMBER := &n;
+  3    s NUMBER := 0;
+  4    r NUMBER := 0;
+  5  BEGIN
+  6    WHILE n <> 0 LOOP
+  7      r := MOD(n, 10);
+  8      s := s + r;
+  9      n := TRUNC(n / 10);
+ 10    END LOOP;
+ 11  
+ 12    DBMS_OUTPUT.PUT_LINE('Sum of digits of given number is ' || s);
+ 13  END;
+ 14  /
+Enter value for n: 1234
+old   2:   n NUMBER := &n;
+new   2:   n NUMBER := 1234;
+Sum of digits of given number is 10
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for n: 12345
+old   2:   n NUMBER := &n;
+new   2:   n NUMBER := 12345;
+Sum of digits of given number is 15
+
+PL/SQL procedure successfully completed.
