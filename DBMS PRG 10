@@ -1,0 +1,52 @@
+SQL> SET SERVEROUTPUT ON
+SQL>  DECLARE 
+  2      string1  VARCHAR2(100) := '&String1'; 
+  3      string2  VARCHAR2(100) := ''; 
+  4      i  number; 
+  5  BEGIN 
+  6      FOR i IN REVERSE 1 .. LENGTH(string1) LOOP 
+  7          string2 := string2 || SUBSTR(string1, i, 1); 
+  8      END LOOP; 
+  9      DBMS_OUTPUT.PUT_LINE('String Input: ' || string1); 
+ 10      DBMS_OUTPUT.PUT_LINE('String Output: ' || string2); 
+ 11  END;
+ 12  /
+Enter value for string1: KGCAS
+old   2:     string1  VARCHAR2(100) := '&String1';
+new   2:     string1  VARCHAR2(100) := 'KGCAS';
+String Input: KGCAS
+String Output: SACGK
+
+PL/SQL procedure successfully completed.
+
+SQL> SET SERVEROUTPUT ON
+SQL>  DECLARE 
+  2      n NUMBER := 10; 
+  3      a NUMBER := 0; 
+  4      b NUMBER := 1; 
+  5      c NUMBER; 
+  6  BEGIN 
+  7      DBMS_OUTPUT.PUT_LINE('Fibonacci Series (First ' || n || ' Terms):');
+  8      DBMS_OUTPUT.PUT_LINE(a); 
+  9      DBMS_OUTPUT.PUT_LINE(b); 
+ 10      FOR i IN 3 .. n LOOP 
+ 11          c := a + b; 
+ 12          DBMS_OUTPUT.PUT_LINE(c); 
+ 13          a := b; 
+ 14          b := c; 
+ 15      END LOOP; 
+ 16  END;
+ 17  /
+Fibonacci Series (First 10 Terms):
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+
+PL/SQL procedure successfully completed.
