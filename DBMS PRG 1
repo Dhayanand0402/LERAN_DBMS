@@ -1,0 +1,36 @@
+SQL>  create table employee1(empno number primary key, empname varchar2(20),designation varchar2(30), gender varchar2(6),age number, doj date,salary number);
+
+SQL> desc employee;
+
+SQL> insert into employee1 values(&empno,'&empname','&designation','&gender',&age,'&doj',&salary); //repeat the query with different datas
+
+SQL> select*from employee1; // display all the data
+
+SQL> select*from employee1 where salary>30000;
+
+SQL> select*from employee1 where age between 25 and 30;
+
+SQL> select*from employee1 where empname like '%a';
+
+SQL> select*from employee1 where salary in(35000,30000,28000);
+
+SQL> select*from employee1 where empno=102;
+
+SQL> select*from employee1 where salary<50000 and salary>30000;
+
+SQL> select*from employee1 where designation='manager' or designation='admin';
+
+SQL> select*from employee1 where not salary<30000;
+
+SQL> select*from employee1 order by empno;
+
+SQL> select*from employee1 order by empno desc;
+
+select*from employee1 where salary>30000 union select*from employee1 where age between 25 and 30;
+
+select*from employee1 where salary>30000 union all select*from employee1 where age between 25 and 30;
+
+select*from employee1 where salary>30000 intersect select*from employee1 where age between 25 and 30;
+
+SQL> selet*from employee1 where salary>30000 minus select*from employee1 where age between 25 and 30;
+
