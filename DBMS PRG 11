@@ -13,6 +13,7 @@ execute immediate query2;
 end; 
 / 
 
+SQL>SET SERVEROUTPUT ON
 SQL>declare 
 cursor cpass is select * from Student1_pass; 
 cursor cfail is select * from Student1_fail; 
